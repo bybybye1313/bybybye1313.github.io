@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f7f5ef">
+  <meta name="description" content="Python으로 데이터를 읽고 질문을 발견하는 주니어 데이터 분석가 김듀듀의 포트폴리오">
+  <title>김듀듀 — 데이터에서 질문을 찾습니다</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&family=Noto+Sans+KR:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root{--paper:#f7f5ef;--ink:#20231f;--muted:#73766e;--orange:#ff6845;--lime:#d8f36a;--blue:#8ec9e8;--line:#deddd5;--white:#fffefa}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:"Manrope","Noto Sans KR",sans-serif;line-height:1.55}a{color:inherit;text-decoration:none}button{font:inherit}
+    .wrap{width:min(1120px,calc(100% - 48px));margin:auto}.nav{height:76px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);font-size:13px}.brand{font-weight:900;letter-spacing:-.06em;font-size:19px}.brand i{display:inline-block;width:9px;height:9px;background:var(--orange);border-radius:50%;margin-left:4px}.navlinks{display:flex;gap:28px;color:var(--muted)}.navlinks a:hover{color:var(--orange)}
+    .eyebrow,.mono{font-family:"DM Mono",monospace;text-transform:uppercase;letter-spacing:.12em;font-size:11px}.hero{min-height:calc(92svh - 76px);display:flex;flex-direction:column;justify-content:center;padding:100px 0 90px;position:relative}.hero .eyebrow{color:var(--orange);margin-bottom:24px}.hero h1{font-size:clamp(54px,10vw,124px);line-height:.99;letter-spacing:-.085em;margin:0;max-width:1000px;font-weight:800}.hero h1 span{color:var(--orange)}.hero-bottom{display:flex;justify-content:space-between;align-items:end;margin-top:48px;gap:24px}.hero-bottom p{max-width:430px;color:var(--muted);font-size:16px;margin:0}.scroll{font-size:11px;letter-spacing:.12em;color:var(--muted);display:flex;align-items:center;gap:12px}.scroll:before{content:"";height:1px;width:42px;background:var(--orange)}
+    .ticker{background:var(--lime);overflow:hidden;padding:13px 0;white-space:nowrap;font-weight:800;letter-spacing:-.03em}.ticker-track{display:inline-block;animation:marquee 26s linear infinite}.ticker span{padding:0 22px}@keyframes marquee{to{transform:translateX(-50%)}}
+    section{padding:130px 0;border-bottom:1px solid var(--line)}.section-head{display:flex;justify-content:space-between;align-items:start;margin-bottom:62px;gap:20px}.section-head h2{font-size:clamp(38px,6vw,70px);line-height:1.05;letter-spacing:-.07em;margin:12px 0 0}.section-head p{max-width:290px;color:var(--muted);font-size:14px;margin:8px 0 0}.number{color:var(--orange)}
+    .statement{font-size:clamp(30px,5.5vw,66px);line-height:1.28;letter-spacing:-.065em;font-weight:700;max-width:980px}.statement .soft{color:#b5b6ae}.statement .accent{color:var(--orange)}
+    .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.card{min-height:300px;padding:28px;border-radius:5px;background:var(--white);display:flex;flex-direction:column;justify-content:space-between}.card:nth-child(2){background:var(--blue)}.card:nth-child(3){background:var(--lime)}.card .symbol{font-size:42px;letter-spacing:-.08em;font-weight:800}.card h3{font-size:22px;letter-spacing:-.05em;margin:0 0 9px}.card p{font-size:13px;color:#565a52;margin:0;max-width:260px}.tag{font-family:"DM Mono",monospace;font-size:10px;letter-spacing:.08em}
+    .journey{display:grid;grid-template-columns:1fr 1.2fr;gap:70px}.journey-intro{font-size:15px;color:var(--muted);max-width:320px}.steps{border-top:1px solid var(--line)}.step{display:grid;grid-template-columns:54px 1fr;gap:18px;padding:25px 0;border-bottom:1px solid var(--line)}.step .n{font-family:"DM Mono",monospace;color:var(--orange);font-size:12px}.step h3{margin:0 0 6px;font-size:20px;letter-spacing:-.04em}.step p{margin:0;color:var(--muted);font-size:13px}
+    .toolbox{display:flex;flex-wrap:wrap;gap:10px;margin-top:38px}.tool{border:1px solid var(--line);border-radius:99px;padding:11px 18px;font-size:13px;background:var(--white)}.tool.hot{background:var(--orange);border-color:var(--orange);color:white}
+    .quote{background:var(--ink);color:var(--white);padding:90px 0}.quote blockquote{font-size:clamp(30px,5vw,60px);font-weight:700;letter-spacing:-.065em;line-height:1.25;margin:0;max-width:900px}.quote blockquote span{color:var(--lime)}.quote .mono{color:#b9bcb3;margin-top:32px;display:block}
+    .contact{padding:130px 0 80px}.contact h2{font-size:clamp(50px,10vw,112px);letter-spacing:-.09em;line-height:.98;margin:16px 0 35px}.contact h2 span{color:var(--orange)}.contact-row{display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--line);padding-top:22px;color:var(--muted);font-size:13px}.contact-link{color:var(--ink);font-weight:700;border-bottom:1px solid var(--orange);padding-bottom:4px}
+    footer{padding:24px 0 36px;color:var(--muted);font-size:11px;display:flex;justify-content:space-between}
+    .reveal{opacity:0;transform:translateY(32px);transition:opacity .8s ease,transform .8s cubic-bezier(.2,.7,.2,1)}.reveal.visible{opacity:1;transform:none}.delay{transition-delay:.14s}
+    @media(max-width:700px){.wrap{width:min(100% - 36px,560px)}.nav{height:64px}.navlinks{gap:14px;font-size:11px}.hero{min-height:78svh;padding:80px 0}.hero h1{font-size:clamp(51px,15vw,88px)}.hero-bottom{align-items:start;flex-direction:column;margin-top:32px}.hero-bottom p{font-size:14px}.scroll{margin-top:8px}section{padding:86px 0}.section-head{display:block;margin-bottom:40px}.section-head p{margin-top:18px}.cards{grid-template-columns:1fr}.card{min-height:230px}.journey{grid-template-columns:1fr;gap:35px}.step{grid-template-columns:34px 1fr}.quote{padding:72px 0}.contact{padding:90px 0 60px}.contact-row{align-items:start;gap:18px;flex-direction:column}footer{gap:12px;flex-direction:column}.ticker{font-size:13px}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}.reveal{opacity:1;transform:none}}
+  </style>
+</head>
+<body>
+  <header class="wrap nav">
+    <a class="brand" href="#" aria-label="김듀듀 홈">DUDU<i></i></a>
+    <nav class="navlinks" aria-label="주요 메뉴"><a href="#about">ABOUT</a><a href="#approach">APPROACH</a><a href="#contact">CONTACT</a></nav>
+  </header>
+  <main>
+    <div class="wrap hero">
+      <div class="eyebrow">A curious mind, learning with data · 2026</div>
+      <h1>안녕하세요,<br>데이터를 읽는<br><span>김듀듀</span>입니다.</h1>
+      <div class="hero-bottom"><p>숫자를 정리하고, 흐름을 살피고,<br>그 안에서 더 나은 질문을 찾습니다.<br>지금은 Python으로 분석의 기초를 단단히 쌓는 중입니다.</p><div class="scroll">SCROLL TO EXPLORE</div></div>
+    </div>
+    <div class="ticker"><div class="ticker-track"><span>관찰하고</span>✳<span>정리하고</span>✳<span>발견하고</span>✳<span>다시 질문합니다</span>✳<span>관찰하고</span>✳<span>정리하고</span>✳<span>발견하고</span>✳<span>다시 질문합니다</span>✳</div></div>
+    <section id="about"><div class="wrap">
+      <div class="section-head reveal"><div><div class="eyebrow number">01 / MY POINT OF VIEW</div><h2>숫자에는<br>이야기가 있습니다.</h2></div><p>데이터를 보는 일은 정답을 찾는 것보다, 무엇을 물어야 할지 알아가는 과정이라고 생각합니다.</p></div>
+      <div class="statement reveal">복잡한 데이터도 차근차근 들여다보면 <span class="soft">작은 패턴이 보이고,</span> 그 패턴은 결국 <span class="accent">새로운 가능성</span>이 됩니다.</div>
+    </div></section>
+    <section id="approach"><div class="wrap">
+      <div class="section-head reveal"><div><div class="eyebrow number">02 / WHAT I PRACTICE</div><h2>배우는 만큼,<br>직접 해봅니다.</h2></div><p>약 6개월간의 데이터 분석 부트캠프에서 Python을 중심으로 분석의 기본기를 익히고 있습니다.</p></div>
+      <div class="cards">
+        <article class="card reveal"><div><div class="tag">01 — CLEAN</div><div class="symbol">01</div></div><div><h3>데이터를 다듬기</h3><p>누락값과 중복을 확인하고, 분석에 쓸 수 있는 형태로 정리하는 연습을 합니다.</p></div></article>
+        <article class="card reveal delay"><div><div class="tag">02 — EXPLORE</div><div class="symbol">02</div></div><div><h3>흐름을 탐색하기</h3><p>기초 통계와 그룹별 비교로 데이터의 특징과 차이를 살펴봅니다.</p></div></article>
+        <article class="card reveal"><div><div class="tag">03 — EXPLAIN</div><div class="symbol">03</div></div><div><h3>쉽게 전달하기</h3><p>그래프로 핵심을 표현하고, 분석 결과를 이해하기 쉬운 말로 설명합니다.</p></div></article>
+      </div>
+    </div></section>
+    <section><div class="wrap">
+      <div class="section-head reveal"><div><div class="eyebrow number">03 / MY TOOLKIT</div><h2>지금 손에 익히는<br>도구들.</h2></div><p>화려한 기술보다 기본기를 정확하게 사용하는 데 집중합니다. 배운 내용을 작은 분석으로 반복해봅니다.</p></div>
+      <div class="journey"><div class="journey-intro reveal">아직 성장 중인 주니어 학습자입니다. 모르는 것을 명확히 하고, 하나씩 실험하며 나만의 분석 과정을 만들어갑니다.<div class="toolbox"><span class="tool hot">Python</span><span class="tool">Pandas</span><span class="tool">NumPy</span><span class="tool">Matplotlib</span><span class="tool">Seaborn</span><span class="tool">Jupyter Notebook</span></div></div>
+        <div class="steps">
+          <article class="step reveal"><div class="n">01</div><div><h3>질문을 구체적으로 만들기</h3><p>무엇을 알고 싶은지 정하고, 필요한 데이터를 살펴봅니다.</p></div></article>
+          <article class="step reveal"><div class="n">02</div><div><h3>Python으로 분석하기</h3><p>불러오기부터 전처리, 탐색적 데이터 분석까지 직접 실행합니다.</p></div></article>
+          <article class="step reveal"><div class="n">03</div><div><h3>결과를 시각화하고 돌아보기</h3><p>차트로 인사이트를 표현하고, 다음에 확인할 질문을 기록합니다.</p></div></article>
+        </div>
+      </div>
+    </div></section>
+    <div class="quote"><div class="wrap reveal"><blockquote>“좋은 분석은 거창한 답보다<br><span>정확한 질문 하나</span>에서 시작됩니다.”</blockquote><span class="mono">— MY LEARNING PHILOSOPHY</span></div></div>
+    <section class="contact" id="contact"><div class="wrap reveal">
+      <div class="eyebrow number">04 / LET'S CONNECT</div><h2>다음 질문을<br><span>함께</span> 찾아요.</h2>
+      <div class="contact-row"><span>배우고 기록하며 성장하는 데이터 분석가, 김듀듀</span><a class="contact-link" href="https://github.com/bybybye1313">GITHUB에서 만나기 ↗</a></div>
+    </div></section>
+  </main>
+  <footer class="wrap"><span>© 2026 KIM DUDU</span><span>MADE WITH CURIOSITY & PYTHON</span></footer>
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.14 });
+    document.querySelectorAll('.reveal').forEach((element) => observer.observe(element));
+  </script>
+</body>
+</html>
